@@ -265,7 +265,9 @@ class SignUp extends StatelessWidget {
           top: 32,
         ),
         child: TextButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, '/splash-registrasi');
+          },
           style: TextButton.styleFrom(
             backgroundColor: primaryColor,
             shape: RoundedRectangleBorder(

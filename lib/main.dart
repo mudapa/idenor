@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:idenor/pages/home/choose_divisi.dart';
 import 'package:idenor/pages/sign_in.dart';
 import 'package:idenor/pages/sign_up.dart';
+import 'package:idenor/pages/splash_register.dart';
 import 'package:idenor/pages/splash_screen.dart';
 
 void main() => runApp(const Idenor());
@@ -14,8 +16,10 @@ class Idenor extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         '/': (context) => const SplashScreen(),
+        '/splash-registrasi': (context) => const SplashRegister(),
         '/sign-in': (context) => const SignIn(),
         '/sign-up': (context) => const SignUp(),
+        '/choose-divisi': (context) => const ChooseDivisi(),
       },
     );
   }
