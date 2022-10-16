@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:idenor/pages/sign_in.dart';
+import 'package:idenor/pages/sign_up.dart';
 import 'package:idenor/pages/splash_screen.dart';
 
 void main() => runApp(const Idenor());
@@ -14,6 +15,7 @@ class Idenor extends StatelessWidget {
       routes: {
         '/': (context) => const SplashScreen(),
         '/sign-in': (context) => const SignIn(),
+        '/sign-up': (context) => const SignUp(),
       },
     );
   }
