@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:idenor/pages/home/choose_divisi.dart';
+import 'package:idenor/pages/home/home.dart';
 import 'package:idenor/pages/sign_in.dart';
 import 'package:idenor/pages/sign_up.dart';
 import 'package:idenor/pages/splash_register.dart';
@@ -20,6 +21,7 @@ class Idenor extends StatelessWidget {
         '/sign-in': (context) => const SignIn(),
         '/sign-up': (context) => const SignUp(),
         '/choose-divisi': (context) => const ChooseDivisi(),
+        '/home': (context) => const Home(),
       },
     );
   }
