@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:idenor/theme.dart';
+import 'package:idenor/widgets/contact_mentor_tile.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -8,7 +9,11 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget header() {
       return Container(
-        margin: const EdgeInsets.only(top: 34),
+        margin: const EdgeInsets.only(
+          top: 34,
+          left: 16,
+          right: 16,
+        ),
         padding: const EdgeInsets.symmetric(horizontal: 12),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -85,18 +90,36 @@ class Home extends StatelessWidget {
 
     Widget contactMentor() {
       return Container(
-        margin: const EdgeInsets.only(top: 16),
+        margin: const EdgeInsets.only(
+          top: 16,
+          left: 16,
+          right: 16,
+        ),
         padding: const EdgeInsets.symmetric(horizontal: 12),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Contact Mentor',
-              style: primaryTextStyle.copyWith(
-                fontSize: 16,
-                fontWeight: medium,
-              ),
-            ),
+        child: Text(
+          'Contact Mentor',
+          style: primaryTextStyle.copyWith(
+            fontSize: 16,
+            fontWeight: medium,
+          ),
+        ),
+      );
+    }
+
+    Widget cardMentor() {
+      return SingleChildScrollView(
+        padding: const EdgeInsets.symmetric(
+          vertical: 32,
+          horizontal: 12,
+        ),
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: const [
+            ContactMentorTile(),
+            ContactMentorTile(),
+            ContactMentorTile(),
+            ContactMentorTile(),
           ],
         ),
       );
@@ -104,16 +127,18 @@ class Home extends StatelessWidget {
 
     Widget content() {
       return ListView(
-        padding: const EdgeInsets.only(
-          left: 16,
-          right: 16,
-          bottom: 32,
-        ),
         children: [
           header(),
           card(),
-          Divider(color: secondaryWhiteColor),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 16,
+              right: 16,
+            ),
+            child: Divider(color: secondaryWhiteColor),
+          ),
           contactMentor(),
+          cardMentor(),
         ],
       );
     }
@@ -129,7 +154,9 @@ class Home extends StatelessWidget {
         child: FittedBox(
           child: FloatingActionButton(
             backgroundColor: primaryColor,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/chat');
+            },
             child: Image.asset(
               'assets/chat.png',
               width: 32,
