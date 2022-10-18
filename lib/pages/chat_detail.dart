@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:idenor/widgets/chat_bubble.dart';
 import '../theme.dart';
 
 class ChatDetail extends StatelessWidget {
@@ -50,14 +51,80 @@ class ChatDetail extends StatelessWidget {
 
     Widget content() {
       return ListView(
-        children: const [],
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16,
+        ),
+        children: const [
+          ChatBubble(),
+        ],
+      );
+    }
+
+    Widget chatInput() {
+      return Container(
+        margin: const EdgeInsets.all(25),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    height: 45,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                    ),
+                    decoration: BoxDecoration(
+                      color: secondaryBlackColor,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Center(
+                      child: TextFormField(
+                        style: primaryTextStyle,
+                        decoration: InputDecoration.collapsed(
+                          hintText: 'Type Message ...',
+                          hintStyle: secondaryTextStyle.copyWith(
+                            fontSize: 12,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Container(
+                  width: 52,
+                  height: 46,
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: primaryColor,
+                  ),
+                  child: Image.asset(
+                    'assets/sent.png',
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       );
     }
 
     return Scaffold(
       backgroundColor: blackColor,
       appBar: header(),
-      body: content(),
+      body: Column(
+        children: [
+          Expanded(
+            child: Container(
+              child: content(),
+            ),
+          ),
+          chatInput(),
+        ],
+      ),
     );
   }
 }
