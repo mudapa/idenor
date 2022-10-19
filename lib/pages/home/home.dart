@@ -27,7 +27,7 @@ class Home extends StatelessWidget {
             ),
             GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, '/sign-in');
+                Navigator.pushNamed(context, '/user-profile');
               },
               child: Container(
                 height: 50,
@@ -68,6 +68,9 @@ class Home extends StatelessWidget {
             ),
             Center(
               child: Container(
+                margin: const EdgeInsets.only(
+                  left: 18,
+                ),
                 padding: const EdgeInsets.all(24),
                 width: 350,
                 height: 200,
@@ -76,8 +79,78 @@ class Home extends StatelessWidget {
                   children: [
                     Image.asset(
                       'assets/logo.png',
-                      width: 57,
+                      width: 75,
                       color: whiteColor,
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(
+                        top: 12,
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            height: 70,
+                            width: 70,
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              color: primaryColor,
+                              borderRadius: BorderRadius.circular(40),
+                            ),
+                            child: Image.asset(
+                              'assets/user.png',
+                              color: whiteColor,
+                            ),
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'NAME      : Test Nama User',
+                                style: TextStyle(
+                                  fontFamily: 'Future',
+                                  fontSize: 12,
+                                  color: whiteColor,
+                                ),
+                              ),
+                              Text(
+                                'DIVISI      : Test Divisi',
+                                style: TextStyle(
+                                  fontFamily: 'Future',
+                                  fontSize: 12,
+                                  color: whiteColor,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(
+                        top: 16,
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const SizedBox(),
+                          Text(
+                            'CSA-042003001',
+                            style: TextStyle(
+                              fontFamily: 'Future',
+                              fontSize: 18,
+                              fontWeight: medium,
+                              color: whiteColor,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),

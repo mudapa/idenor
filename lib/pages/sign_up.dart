@@ -10,7 +10,7 @@ class SignUp extends StatelessWidget {
     Widget header() {
       return Container(
         margin: const EdgeInsets.only(
-          top: 64,
+          top: 32,
         ),
         padding: const EdgeInsets.symmetric(
           horizontal: 12,

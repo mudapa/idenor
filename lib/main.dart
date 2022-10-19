@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:idenor/pages/home/chat.dart';
 import 'package:idenor/pages/home/choose_divisi.dart';
+import 'package:idenor/pages/home/edit_profile.dart';
 import 'package:idenor/pages/home/home.dart';
+import 'package:idenor/pages/home/user_profile.dart';
 import 'package:idenor/pages/sign_in.dart';
 import 'package:idenor/pages/sign_up.dart';
 import 'package:idenor/pages/splash_register.dart';
@@ -26,6 +28,8 @@ class Idenor extends StatelessWidget {
         '/home': (context) => const Home(),
         '/chat': (context) => const Chat(),
         '/chat-detail': (context) => const ChatDetail(),
+        '/user-profile': (context) => const UserProfile(),
+        '/edit-profile': (context) => const EditProfile(),
       },
     );
   }
