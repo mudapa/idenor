@@ -29,31 +29,72 @@ class EditProfile extends StatelessWidget {
       );
     }
 
-    Widget content() {
+    Widget avatarUser() {
       return Container(
-        margin: const EdgeInsets.symmetric(
-          vertical: 32,
+        margin: const EdgeInsets.only(
+          top: 32,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(50),
+          color: primaryColor,
+        ),
+        child: Image.asset(
+          'assets/user.png',
+          height: 100,
+          color: whiteColor,
+        ),
+      );
+    }
+
+    Widget nameInput() {
+      return Container(
+        margin: const EdgeInsets.only(
+          top: 32,
+          left: 16,
+          right: 16,
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              width: 105,
-              height: 105,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                color: primaryColor,
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 12,
               ),
-              child: Image.asset(
-                'assets/user.png',
-                color: whiteColor,
+              child: Text(
+                'Full Name',
+                style: primaryTextStyle.copyWith(
+                  fontSize: 14,
+                  fontWeight: medium,
+                ),
               ),
             ),
-            const SizedBox(height: 32),
-            Text(
-              'Full Name',
-              style: primaryTextStyle.copyWith(
-                fontSize: 16,
-                fontWeight: medium,
+            Container(
+              height: 50,
+              padding: const EdgeInsets.symmetric(
+                horizontal: 12,
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Center(
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: TextFormField(
+                        style: primaryTextStyle,
+                        decoration: InputDecoration(
+                          hintText: 'Dude bray',
+                          hintStyle: primaryTextStyle,
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: secondaryWhiteColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
@@ -61,13 +102,134 @@ class EditProfile extends StatelessWidget {
       );
     }
 
+    Widget userNameInput() {
+      return Container(
+        margin: const EdgeInsets.only(
+          top: 20,
+          left: 16,
+          right: 16,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 12,
+              ),
+              child: Text(
+                'Username',
+                style: primaryTextStyle.copyWith(
+                  fontSize: 14,
+                  fontWeight: medium,
+                ),
+              ),
+            ),
+            Container(
+              height: 50,
+              padding: const EdgeInsets.symmetric(
+                horizontal: 12,
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Center(
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: TextFormField(
+                        style: primaryTextStyle,
+                        decoration: InputDecoration(
+                          hintText: 'Dude bray',
+                          hintStyle: primaryTextStyle,
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: secondaryWhiteColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget emailInput() {
+      return Container(
+        margin: const EdgeInsets.only(
+          top: 20,
+          left: 16,
+          right: 16,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 12,
+              ),
+              child: Text(
+                'Email',
+                style: primaryTextStyle.copyWith(
+                  fontSize: 14,
+                  fontWeight: medium,
+                ),
+              ),
+            ),
+            Container(
+              height: 50,
+              padding: const EdgeInsets.symmetric(
+                horizontal: 12,
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Center(
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: TextFormField(
+                        style: primaryTextStyle,
+                        decoration: InputDecoration(
+                          hintText: 'Dude_bray@gmail.com',
+                          hintStyle: primaryTextStyle,
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: secondaryWhiteColor,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget content() {
+      return Column(
+        // padding: const EdgeInsets.all(16),
+        children: [
+          avatarUser(),
+          nameInput(),
+          userNameInput(),
+          emailInput(),
+        ],
+      );
+    }
+
     return Scaffold(
       backgroundColor: blackColor,
       appBar: header(),
       body: ListView(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 30,
-        ),
         children: [
           content(),
         ],
