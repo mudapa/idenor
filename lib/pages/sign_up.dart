@@ -10,12 +10,13 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  String userName = '';
   String fullName = '';
-  String email = '';
-  String password = '';
 
-  TextEditingController fullNameController = TextEditingController(text: '');
+  set result(String result) {
+    setState(() {
+      fullName = result;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -94,26 +95,30 @@ class _SignUpState extends State<SignUp> {
                               color: whiteColor,
                             ),
                           ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'NAME      : $fullName',
-                                style: TextStyle(
-                                  fontFamily: 'Future',
-                                  fontSize: 12,
-                                  color: whiteColor,
+                          const SizedBox(width: 32),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'NAME      : $fullName',
+                                  style: TextStyle(
+                                    fontFamily: 'Future',
+                                    fontSize: 12,
+                                    color: whiteColor,
+                                  ),
+                                  maxLines: 1,
                                 ),
-                              ),
-                              Text(
-                                'DIVISI      : Test Divisi',
-                                style: TextStyle(
-                                  fontFamily: 'Future',
-                                  fontSize: 12,
-                                  color: whiteColor,
+                                Text(
+                                  'DIVISI      : Test Divisi',
+                                  style: TextStyle(
+                                    fontFamily: 'Future',
+                                    fontSize: 12,
+                                    color: whiteColor,
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -248,7 +253,10 @@ class _SignUpState extends State<SignUp> {
                     const SizedBox(width: 12),
                     Expanded(
                       child: TextFormField(
-                        controller: fullNameController,
+                        onChanged: (value) {
+                          fullName = value;
+                          result = fullName;
+                        },
                         style: primaryTextStyle,
                         decoration: InputDecoration.collapsed(
                           hintText: 'Your Full Name',
@@ -414,7 +422,7 @@ class _SignUpState extends State<SignUp> {
     Widget footer() {
       return Container(
         margin: const EdgeInsets.only(
-          top: 257,
+          top: 100,
           bottom: 32,
         ),
         child: Row(
