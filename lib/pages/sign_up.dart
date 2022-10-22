@@ -1,3 +1,4 @@
+import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 
 import '../theme.dart';
@@ -39,118 +40,235 @@ class _SignUpState extends State<SignUp> {
     }
 
     Widget card() {
-      return Container(
-        padding: const EdgeInsets.all(32),
-        child: Stack(
-          children: [
-            Center(
-              child: Container(
-                width: 350,
-                height: 200,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  image: const DecorationImage(
-                    image: AssetImage('assets/card-depan.png'),
-                    fit: BoxFit.fill,
+      return FlipCard(
+        front: Container(
+          padding: const EdgeInsets.all(24),
+          child: Stack(
+            children: [
+              Center(
+                child: Container(
+                  width: 350,
+                  height: 200,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    image: const DecorationImage(
+                      image: AssetImage('assets/card-depan.png'),
+                      fit: BoxFit.fill,
+                    ),
                   ),
                 ),
               ),
-            ),
-            Center(
-              child: Container(
-                margin: const EdgeInsets.only(
-                  left: 18,
-                ),
-                padding: const EdgeInsets.all(24),
-                width: 350,
-                height: 200,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Image.asset(
-                      'assets/logo.png',
-                      width: 75,
-                      color: whiteColor,
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(
-                        top: 12,
+              Center(
+                child: Container(
+                  margin: const EdgeInsets.only(
+                    left: 18,
+                  ),
+                  padding: const EdgeInsets.all(24),
+                  width: 350,
+                  height: 200,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Image.asset(
+                        'assets/logo.png',
+                        width: 75,
+                        color: whiteColor,
                       ),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 10,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            height: 70,
-                            width: 70,
-                            padding: const EdgeInsets.all(12),
-                            decoration: BoxDecoration(
-                              color: primaryColor,
-                              borderRadius: BorderRadius.circular(40),
+                      Container(
+                        margin: const EdgeInsets.only(
+                          top: 12,
+                        ),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              height: 70,
+                              width: 70,
+                              padding: const EdgeInsets.all(12),
+                              decoration: BoxDecoration(
+                                color: primaryColor,
+                                borderRadius: BorderRadius.circular(40),
+                              ),
+                              child: Image.asset(
+                                'assets/user.png',
+                                color: whiteColor,
+                              ),
                             ),
-                            child: Image.asset(
-                              'assets/user.png',
-                              color: whiteColor,
-                            ),
-                          ),
-                          const SizedBox(width: 32),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'NAME      : $fullName',
-                                  style: TextStyle(
-                                    fontFamily: 'Future',
-                                    fontSize: 12,
-                                    color: whiteColor,
+                            const SizedBox(width: 40),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'NAME   : $fullName',
+                                    style: TextStyle(
+                                      fontFamily: 'Future',
+                                      fontSize: 12,
+                                      color: whiteColor,
+                                    ),
+                                    maxLines: 1,
                                   ),
-                                  maxLines: 1,
-                                ),
-                                Text(
-                                  'DIVISI      : Test Divisi',
-                                  style: TextStyle(
-                                    fontFamily: 'Future',
-                                    fontSize: 12,
-                                    color: whiteColor,
+                                  Text(
+                                    'DIVISI   : Internet Of Things',
+                                    style: TextStyle(
+                                      fontFamily: 'Future',
+                                      fontSize: 12,
+                                      color: whiteColor,
+                                    ),
+                                    maxLines: 1,
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(
-                        top: 16,
-                      ),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 10,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const SizedBox(),
-                          Text(
-                            'CSA-042003001',
-                            style: TextStyle(
-                              fontFamily: 'Future',
-                              fontSize: 18,
-                              fontWeight: medium,
-                              color: whiteColor,
+                      Container(
+                        margin: const EdgeInsets.only(
+                          top: 16,
+                        ),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const SizedBox(),
+                            Text(
+                              'CSA-042003001',
+                              style: TextStyle(
+                                fontFamily: 'Future',
+                                fontSize: 18,
+                                fontWeight: medium,
+                                color: whiteColor,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
+        ),
+        back: Container(
+          padding: const EdgeInsets.all(24),
+          child: Stack(
+            children: [
+              Center(
+                child: Container(
+                  width: 350,
+                  height: 200,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    image: const DecorationImage(
+                      image: AssetImage('assets/card-depan.png'),
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ),
+              ),
+              Center(
+                child: Container(
+                  margin: const EdgeInsets.only(
+                    left: 18,
+                  ),
+                  padding: const EdgeInsets.all(24),
+                  width: 350,
+                  height: 200,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Image.asset(
+                        'assets/logo.png',
+                        width: 75,
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(
+                          top: 12,
+                        ),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              height: 70,
+                              width: 70,
+                              padding: const EdgeInsets.all(12),
+                              decoration: BoxDecoration(
+                                color: primaryColor,
+                                borderRadius: BorderRadius.circular(40),
+                              ),
+                              child: Image.asset(
+                                'assets/user.png',
+                                color: whiteColor,
+                              ),
+                            ),
+                            const SizedBox(width: 40),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'NAME   : $fullName',
+                                    style: TextStyle(
+                                      fontFamily: 'Future',
+                                      fontSize: 12,
+                                      color: whiteColor,
+                                    ),
+                                    maxLines: 1,
+                                  ),
+                                  Text(
+                                    'DIVISI   : test',
+                                    style: TextStyle(
+                                      fontFamily: 'Future',
+                                      fontSize: 12,
+                                      color: whiteColor,
+                                    ),
+                                    maxLines: 1,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.only(
+                          top: 16,
+                        ),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            const SizedBox(),
+                            Text(
+                              'CSA-042003001',
+                              style: TextStyle(
+                                fontFamily: 'Future',
+                                fontSize: 18,
+                                fontWeight: medium,
+                                color: whiteColor,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       );
     }
