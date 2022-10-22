@@ -121,18 +121,23 @@ class UserProfile extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Log Out',
-                        style: secondaryTextStyle,
-                      ),
-                      Icon(
-                        Icons.chevron_right,
-                        color: secondaryWhiteColor,
-                      ),
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/sign-in');
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Log Out',
+                          style: secondaryTextStyle,
+                        ),
+                        Icon(
+                          Icons.chevron_right,
+                          color: secondaryWhiteColor,
+                        ),
+                      ],
+                    ),
                   ),
                   Divider(
                     color: secondaryWhiteColor,

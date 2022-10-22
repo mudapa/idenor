@@ -18,6 +18,12 @@ class EditProfile extends StatelessWidget {
           ),
         ),
         backgroundColor: secondaryBlackColor,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: const Icon(Icons.chevron_left),
+        ),
         actions: const [
           Padding(
             padding: EdgeInsets.all(24),

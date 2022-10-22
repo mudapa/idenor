@@ -2,8 +2,20 @@ import 'package:flutter/material.dart';
 
 import '../theme.dart';
 
-class SignUp extends StatelessWidget {
+class SignUp extends StatefulWidget {
   const SignUp({super.key});
+
+  @override
+  State<SignUp> createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+  String userName = '';
+  String fullName = '';
+  String email = '';
+  String password = '';
+
+  TextEditingController fullNameController = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
@@ -25,10 +37,123 @@ class SignUp extends StatelessWidget {
       );
     }
 
+    Widget card() {
+      return Container(
+        padding: const EdgeInsets.all(32),
+        child: Stack(
+          children: [
+            Center(
+              child: Container(
+                width: 350,
+                height: 200,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  image: const DecorationImage(
+                    image: AssetImage('assets/card-depan.png'),
+                    fit: BoxFit.fill,
+                  ),
+                ),
+              ),
+            ),
+            Center(
+              child: Container(
+                margin: const EdgeInsets.only(
+                  left: 18,
+                ),
+                padding: const EdgeInsets.all(24),
+                width: 350,
+                height: 200,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Image.asset(
+                      'assets/logo.png',
+                      width: 75,
+                      color: whiteColor,
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(
+                        top: 12,
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            height: 70,
+                            width: 70,
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              color: primaryColor,
+                              borderRadius: BorderRadius.circular(40),
+                            ),
+                            child: Image.asset(
+                              'assets/user.png',
+                              color: whiteColor,
+                            ),
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'NAME      : $fullName',
+                                style: TextStyle(
+                                  fontFamily: 'Future',
+                                  fontSize: 12,
+                                  color: whiteColor,
+                                ),
+                              ),
+                              Text(
+                                'DIVISI      : Test Divisi',
+                                style: TextStyle(
+                                  fontFamily: 'Future',
+                                  fontSize: 12,
+                                  color: whiteColor,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(
+                        top: 16,
+                      ),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const SizedBox(),
+                          Text(
+                            'CSA-042003001',
+                            style: TextStyle(
+                              fontFamily: 'Future',
+                              fontSize: 18,
+                              fontWeight: medium,
+                              color: whiteColor,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
     Widget usernameInput() {
       return Container(
         margin: const EdgeInsets.only(
-          top: 64,
+          top: 12,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -123,6 +248,7 @@ class SignUp extends StatelessWidget {
                     const SizedBox(width: 12),
                     Expanded(
                       child: TextFormField(
+                        controller: fullNameController,
                         style: primaryTextStyle,
                         decoration: InputDecoration.collapsed(
                           hintText: 'Your Full Name',
@@ -322,6 +448,7 @@ class SignUp extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         children: [
           header(),
+          card(),
           usernameInput(),
           fullnameInput(),
           emailInput(),
